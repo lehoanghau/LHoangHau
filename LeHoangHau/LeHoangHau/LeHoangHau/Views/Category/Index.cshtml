@@ -1,0 +1,38 @@
+﻿@model List<LeHoangHau.Context.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+    <div class="container">
+
+        <nav class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3">
+
+                    <div class="card card-category">
+                        <div class="img-wrap" style="background: #ffd7d7">
+                            <img src="~/Content/images/category/@item.Avartar">
+                        </div>
+
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="~/Category/ProductCategory/@item.Id">@item.Name</a></h4>
+
+                        </div>
+                    </div>
+                </div> <!-- col.// -->
+            }
+
+
+        </nav> <!-- row.// -->
+
+
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+<!-- ========================= SECTION SUBSCRIBE  ========================= -->
+<!-- ========================= SECTION SUBSCRIBE END// ========================= -->
+<!-- ========================= FOOTER ========================= -->

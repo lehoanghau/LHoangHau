@@ -1,0 +1,109 @@
+﻿@model List<LeHoangHau.Context.Product>
+@{
+    ViewBag.Title = "ProductCategory";
+}
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+    <div class="container">
+
+
+        <!-- ============================  FILTER TOP  ================================= -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <ol class="breadcrumb float-left">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home", new {})">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Category", new {})">Tất cả danh mục</a></li>
+
+                    <li class="breadcrumb-item active"></li>
+
+                </ol>
+            </div> <!-- card-body .// -->
+        </div> <!-- card.// -->
+        <!-- ============================ FILTER TOP END.// ================================= -->
+
+
+        <div class="row">
+
+            <main class="col-md-10">
+
+
+                <header class="mb-3">
+                  
+                </header><!-- sect-heading -->
+                @foreach (var item in Model)
+                {
+                    <article class="card card-product-list">
+                        <div class="row no-gutters">
+                            <aside class="col-md-3">
+                                <a href="@Url.Action("Detail","Product", new {id=item.Id})" class="img-wrap">
+                                    <span class="badge badge-danger"> NEW </span>
+                                    <img src="~/Content/images/items/@item.Avartar">
+
+                                </a>
+                            </aside> <!-- col.// -->
+                            <div class="col-md-6">
+                                <div class="info-main">
+                                    <a href="@Url.Action("Detail","Product", new {id=item.Id})" class="h5 title"> @item.Name</a>
+                                    <div class="rating-wrap mb-2">
+                                        <ul class="rating-stars">
+                                            <li style="width:100%" class="stars-active">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </li>
+                                        </ul>
+                                        <div class="label-rating">9/10</div>
+                                    </div> <!-- rating-wrap.// -->
+
+                                    <p class="mb-3">
+                                        <span class="tag"> <i class="fa fa-check"></i> Đã xác minh</span>
+                                        <span class="tag"> 5 năm </span>
+                                        <span class="tag"> 80 đánh giá </span>
+
+                                    </p>
+
+                                    <p>
+                                        @item.ShortDes
+                                    </p>
+
+                                </div> <!-- info-main.// -->
+                            </div> <!-- col.// -->
+                            <aside class="col-sm-3">
+                                <div class="info-aside">
+                                    <div class="price-wrap">
+                                        <span class="h5 price">@item.Price</span>
+                                        <small class="text-muted">/1</small>
+                                    </div> <!-- price-wrap.// -->
+                                    <small class="text-warning">trả tiền vận chuyển</small>
+
+
+
+                                    <label class="custom-control mt-3 custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input">
+
+                                    </label>
+
+                                </div> <!-- info-aside.// -->
+                            </aside> <!-- col.// -->
+                        </div> <!-- row.// -->
+                    </article>
+                }
+                <!-- card-product .// -->
+
+
+
+
+            </main> <!-- col.// -->
+
+        </div>
+
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+<!-- ========================= SECTION SUBSCRIBE  ========================= -->

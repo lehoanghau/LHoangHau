@@ -1,0 +1,186 @@
+﻿<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="max-age=604800" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Website title - bootstrap html template</title>
+
+    <link href="~/Content/css/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+    <!-- jQuery -->
+    <script src="~/Scripts/js/jquery-2.0.0.min.js" type="text/javascript"></script>
+
+    <!-- Bootstrap4 files-->
+    <script src="~/Scripts/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" />
+
+    <!-- Font awesome 5 -->
+    <link href="~/Content/fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet">
+
+    <!-- custom style -->
+    <link href="~/Content/css/ui.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/responsive.css" rel="stylesheet" type="text/css" />
+
+    <!-- custom javascript -->
+    <script src="~/Scripts/js/script.js" type="text/javascript"></script>
+
+</head>
+<body>
+    <header class="section-header">
+        <section class="header-main border-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-3 col-md-12">
+                        <a href="@Url.Action("Index","Home", new {})" class="brand-wrap">
+                            <img class="logo" src="~/Content/images/logo.png">
+                        </a> <!-- brand-wrap.// -->
+
+                    </div>
+                    <div class="col-xl-6 col-lg-5 col-md-6">
+                        <form action="" class="search-header">
+                            <div class="input-group w-100">
+                                
+                                <input type="text" class="form-control" placeholder="Tìm kiếm">
+
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="fa fa-search"></i> Tìm kiếm
+                                    </button>
+                                </div>
+                            </div>
+                        </form> <!-- search-wrap .end// -->
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="widgets-wrap float-md-right">
+                            <div class="widget-header mr-3">
+                                <a href="@Url.Action("Login","Home", new {})" class="widget-view">
+                                    <div class="icon-area">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+
+
+                                    @if (Session["idUser"] != null)
+                                    {
+                                        <small class="text">
+                                            <a href="~/Admin/Product/Index">Trang Admin </a>
+                                        </small>
+                                        <a href="~/Home/Logout">Đăng Xuất </a>
+
+                                    }
+                                    else
+                                    {
+                                        <small class="text">
+                                            <a href="~/Home/Login">Đăng Nhập</a>
+                                        </small>
+                                    }
+
+                            </div>
+
+                            <div class="widget-header mr-3">
+                                <a href="@Url.Action("Register","Home", new {})" class="widget-view">
+                                    <div class="icon-area">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <small class="text">@Html.ActionLink("Đăng Ký", "Register", "Home", new { }, null) </small>
+                                </a>
+                            </div>
+
+                            <div class="widget-header">
+                                <a href="@Url.Action("Index","Cart", new {})" class="widget-view">
+                                    <div class="icon-area">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <span class="notify" id="CartCount">@Session["count"]</span>
+                                    </div>
+                                    <small class="text">@Html.ActionLink("Giỏ hàng", "Index", "Cart", new { }, null)</small>
+                                </a>
+                            </div>
+                        </div> <!-- widgets-wrap.// -->
+                    </div> <!-- col.// -->
+                </div> <!-- row.// -->
+            </div> <!-- container.// -->
+        </section> <!-- header-main .// -->
+
+
+        <nav class="navbar navbar-main navbar-expand-lg border-bottom">
+            <div class="container">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse" id="main_nav">
+                  
+                           
+                            
+                                <a class="dropdown-item" @Html.ActionLink("Trang chủ", "Index", "Home")</a>
+                                <a class="dropdown-item" @Html.ActionLink("Tất cả danh mục", "Index", "Category")</a>
+                                
+                                <a class="dropdown-item" @Html.ActionLink("Giỏ hàng", "Index", "Category")</a>
+                                <a class="dropdown-item" @Html.ActionLink("Trang Đăng Nhập", "Login", "Home")</a>
+                                <a class="dropdown-item" @Html.ActionLink("Trang Đăng Ký", "Register", "Home")</a>
+
+                            
+                      
+
+                </div> <!-- collapse .// -->
+            </div> <!-- container .// -->
+        </nav>
+    </header>
+
+    @RenderBody()
+    <!-- section-header.// -->
+
+
+    <footer class="section-footer bg-secondary">
+        <div class="container">
+            <section class="footer-top padding-y-lg text-white">
+                <div class="row">
+                    <aside class="col-md col-4">
+                        <h6 class="title">Thương hiệu</h6>
+                        <ul class="list-unstyled">
+                            <li> <a href="">Adidas</a></li>
+                            <li> <a href="">Vans</a></li>
+                            <li> <a href="">Balenciaga</a></li>
+
+                        </ul>
+                    </aside>
+
+                    <aside class="col-md col-4">
+                        <h6 class="title">Account</h6>
+                        <ul class="list-unstyled">
+                            <li> <a href="~/Home/Login"> Đăng nhập </a></li>
+                            <li> <a href="~/Home/Register">Đăng ký </a></li>
+
+                            <li> <a href="~/Cart"> Giỏ hàng </a></li>
+                        </ul>
+                    </aside>
+                    <aside class="col-md col-4">
+                        <h6 class="title">Social</h6>
+                        <ul class="list-unstyled">
+                            <li><a href=""> <i class="fab fa-facebook"></i> Facebook </a></li>
+
+                            <li><a href=""> <i class="fab fa-instagram"></i> Instagram </a></li>
+                            <li><a href=""> <i class="fab fa-youtube"></i> Youtube </a></li>
+                        </ul>
+                    </aside>
+                </div> <!-- row.// -->
+            </section>	<!-- footer-top.// -->
+
+            <section class="footer-bottom text-center">
+
+                @*<p class="text-white">Privacy Policy - Terms of Use - User Information Legal Enquiry Guide</p>
+                    <p class="text-muted"> &copy 2019 Company name, All rights reserved </p>*@
+                <br>
+            </section>
+        </div><!-- //container -->
+    </footer>
+    <!-- ========================= FOOTER END // ========================= -->
+
+
+
+</body>
+</html>
